@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import SocialLinks from './SocialLinks';
 
-const name = 'Jose Laurito';
-const title = '';
-const job = '';
+//const name = 'Jose Laurito';
+//const title = '';
+//const job = '';
 
 const Hero = () => {
   const handleDownloadCV = () => {
@@ -51,9 +51,9 @@ const Hero = () => {
             </span>
           </h3>
           <h3 className="text-xl">
-            and a{' '}
+            and an{' '}
             <span className="text-primary font-semibold">
-              Senior Developer at The Spartan IT Group
+              MES Operations Data Analyst at StarPlus Energy, Indiana
             </span>
           </h3>
         </div>

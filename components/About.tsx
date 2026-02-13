@@ -28,15 +28,31 @@ const About = () => {
         </div>
 
         <p>
-          Hello, I&apos;m Jose, an experienced{' '}
+          Hello, I&apos;m Jose, a{' '}
           <span className="text-primary font-semibold text-lg">
             Full-Stack Software Engineer{' '}
           </span>
-          and Restaurant Chef, with a passion for technology and innovation.
+          and{' '}
+          <span className="text-primary font-semibold text-lg">
+            MES Operations Data Analyst{' '}
+          </span>
+          , driven by a passion for building scalable technology and optimizing
+          complex systems.
         </p>
         <br />
         <p>
-          As a{' '}
+          Currently, at{' '}
+          <span className="text-primary font-semibold text-lg">
+            StarPlus Energy
+          </span>
+          , I bridge the gap between software and large-scale manufacturing by
+          managing Manufacturing Execution Systems (MES). I specialize in
+          real-time troubleshooting, automation oversight, and leveraging
+          data-driven insights to enhance operational efficiency.
+        </p>
+        <br />
+        <p>
+          Previously, as a{' '}
           <span className="text-primary font-semibold text-lg">
             Senior Developer
           </span>{' '}
@@ -44,12 +60,12 @@ const About = () => {
           <span className="text-primary font-semibold text-lg">
             The Spartan IT Group
           </span>
-          , a managed service provider, I specialize in delivering dynamic
-          solutions for local businesses. I work in an agile environment,
-          collaborating with developers and designers, conducting code reviews
-          to maintain quality, and leveraging technologies like Next.js,
-          Supabase, OAuth, and CI/CD pipelines. Key contributions include “The
-          Kennel” and the Spartan IT Group company website.
+          , I led the development of dynamic solutions for local businesses in
+          an Agile environment. My work focused on architecting robust
+          applications using Next.js, Supabase, and PostgreSQL, while
+          implementing secure OAuth authentication and CI/CD pipelines to
+          streamline deployments. Key projects include "The Kennel" e-commerce
+          platform and the Spartan IT Group’s corporate site.
         </p>
         <br />
         <p>

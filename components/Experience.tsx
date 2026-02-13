@@ -1,10 +1,22 @@
-import React from 'react';
-
 const experiences = [
+  {
+    company: 'StarPlus Energy',
+    role: 'MES Operations Data Analyst',
+    date: 'February 2025 - Present',
+    acc: [
+      'Monitor and maintain the Manufacturing Execution System (MES) to ensure efficient and uninterrupted manufacturing operations.',
+      'Troubleshoot and resolve technical issues in real-time, collaborating with cross-functional teams to optimize processes.',
+      'Oversee automation technologies, ensuring seamless production workflows.',
+      'Analyze MES data to identify trends and implement data-driven process improvements, enhancing operational efficiency.',
+      'Develop and document performance metrics, preventative maintenance plans, and system optimization strategies.',
+      'Partner with manufacturing and maintenance teams to implement lean methodologies and support continuous improvement initiatives.',
+      'Maintain detailed records of MES performance and recommend upgrades to enhance reliability and system scalability.',
+    ],
+  },
   {
     company: 'The Spartan IT Group LLC',
     role: 'Senior Developer',
-    date: 'April 2023 - Present',
+    date: 'October 2024 - January 2025',
     acc: [
       '"Project Lead for “The Kennel” – an e-commerce platform developed for Bulldog Community Gaming LLC, incorporating Next.js, Supabase, PostgreSQL, and React Hook Forms.',
       'Led end-to-end application development: architecture design, database integration, API development, and front-end optimization to deliver a seamless, responsive user experience.',
@@ -42,7 +54,7 @@ const experiences = [
   {
     company: 'Marriott Magnificent Mile',
     role: 'Restuarant Chef',
-    date: 'August 2019 - Present',
+    date: 'August 2019 - January 2025',
     acc: [
       'Assisted with the development of full, tasting and special event menus to meet all establishment needs and maintain strong customer levels outlined by Marriott Brand.',
       'Plated every dish with attractive flair to meet strict restaurant standards and maintain stellar business reputation.',

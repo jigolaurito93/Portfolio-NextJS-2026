@@ -31,7 +31,7 @@ export const experiences: ExperienceType[] = [
   {
     company: 'Co.Lab',
     role: 'Software Developer',
-    date: 'June 2023 - November 2023',
+    date: 'September 2023 - March 2024',
     acc: [
       'Developed “Break Buddy” and “Matrimoni” applications with React.js, Tailwind CSS, Material-UI, and Firebase, focusing on creating scalable, accessible web solutions.',
       'Designed and deployed "Break Buddy" on Vercel with a CI/CD workflow for rapid updates and reliability.',
@@ -67,3 +67,7 @@ export const experiences: ExperienceType[] = [
     ],
   },
 ];
+ock rotation for each station's prep work.",
+      ],
+    },
+  ];

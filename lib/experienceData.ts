@@ -67,7 +67,3 @@ export const experiences: ExperienceType[] = [
     ],
   },
 ];
-ock rotation for each station's prep work.",
-      ],
-    },
-  ];

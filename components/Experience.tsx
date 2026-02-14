@@ -14,9 +14,9 @@ const Experience = () => {
           <div key={i} className="flex flex-col gap-4">
             <div className="flex flex-col md:flex-row justify-between">
               <h2 className="text-primary-light text-lg md:text-2xl font-semibold">
-                {experience.company}
-                {' - '}
                 {experience.role}
+                {' - '}
+                {experience.company}
               </h2>
               <h3 className="text-primary text-lg">{experience.date}</h3>
             </div>

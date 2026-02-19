@@ -1,6 +1,6 @@
-# Jose's 2024 Portfolio
+# Jose's 2026 Portfolio
 
-Welcome to my 2024 portfolio! This is a showcase of my journey as a Full-Stack Software Engineer, featuring my professional experience, technical skills, and noteworthy projects.
+Welcome to my 2026 portfolio! This is a showcase of my journey as a Full-Stack Software Engineer, featuring my professional experience, technical skills, and noteworthy projects.
 
 ## Tech Stack
 

@@ -43,37 +43,37 @@ const Experience = () => {
               </span>
 
               <article
-                className={
-                  featured ? 'glass glow-gold p-6 md:p-8' : 'pb-2'
-                }
+                className={featured ? 'glass glow-gold p-6 md:p-8' : 'pb-2'}
               >
+                <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
+                  <h3 className="font-display text-xl font-semibold text-primary-light md:text-2xl">
+                    {experience.role}
+                    <span className="text-primary">
+                      {' '}
+                      — {experience.company}
+                    </span>
+                  </h3>
+                  <p className="font-mono text-xs text-primary md:text-sm">
+                    {experience.date}
+                  </p>
+                </div>
 
-              <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
-                <h3 className="font-display text-xl font-semibold text-primary-light md:text-2xl">
-                  {experience.role}
-                  <span className="text-primary"> — {experience.company}</span>
-                </h3>
-                <p className="font-mono text-xs text-primary md:text-sm">
-                  {experience.date}
-                </p>
-              </div>
+                {featured && (
+                  <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-secondary">
+                    Live role · analyst + operations support
+                  </p>
+                )}
 
-              {featured && (
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-secondary">
-                  Live role · analyst + operations support
-                </p>
-              )}
-
-              <ul className="mt-4 flex list-disc flex-col gap-2 pl-5">
-                {experience.acc.map((item) => (
-                  <li
-                    key={item}
-                    className="text-sm leading-relaxed text-secondary marker:text-primary md:text-base"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
+                <ul className="mt-4 flex list-disc flex-col gap-2 pl-5">
+                  {experience.acc.map((item) => (
+                    <li
+                      key={item}
+                      className="text-sm leading-relaxed text-secondary marker:text-primary md:text-base"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </article>
             </motion.div>
           );

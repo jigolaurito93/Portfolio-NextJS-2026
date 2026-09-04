@@ -80,10 +80,7 @@ const ProjectCard = ({
       {project.shots && project.shots.length > 0 && (
         <div className="grid grid-cols-3 gap-2 sm:col-span-2 sm:col-start-2">
           {project.shots.map((shot) => (
-            <div
-              key={shot.label}
-              className={cn(!shot.src && 'opacity-80')}
-            >
+            <div key={shot.label} className={cn(!shot.src && 'opacity-80')}>
               <BrowserFrame href={project.live} compact>
                 <div className={`relative ${SHOT_ASPECT} bg-black/30`}>
                   {shot.src ? (

@@ -6,9 +6,17 @@ export const projects: ProjectType[] = [
     id: 'onyx-carwash',
     title: 'Onyx Premium Carwash',
     description:
-      'Full-stack marketing site and owner-facing CMS for a premium car wash. Public pages pull live catalog, hours, gallery, and FAQs from Supabase; the shop edits everything from a gated admin — no code deploys for copy, prices, or photos.',
+      'Full-stack marketing site and owner-facing CMS for a premium car wash. Public pages pull live catalog, hours, gallery, and FAQs from Supabase; the contact page embeds a Google Maps pin for directions. The shop edits everything from a gated admin — no code deploys for copy, prices, or photos.',
     image: '/images/projects/onyx/cover.png',
-    tags: ['Next.js', 'Supabase', 'Tailwind', 'shadcn/ui', 'Zod', 'Resend'],
+    tags: [
+      'Next.js',
+      'Supabase',
+      'Tailwind',
+      'shadcn/ui',
+      'Zod',
+      'Resend',
+      'Google Maps',
+    ],
     category: 'Full-Stack',
     featured: true,
     github: 'https://github.com/jigolaurito93/carwash-web-app',
@@ -18,12 +26,23 @@ export const projects: ProjectType[] = [
       'Public site: Home, About, Services, Gallery, Contact',
       'Invite-only admin CMS with role-gated accounts',
       'Live catalog, hours, gallery, and FAQ in Postgres',
+      'Google Maps JavaScript API for shop location and directions',
       'Zod-validated contact form delivered through Resend',
     ],
     shots: [
       { label: 'Home', src: '/images/projects/onyx/cover.png' },
       { label: 'Services', src: '/images/projects/onyx/services.png' },
       { label: 'Contact', src: '/images/projects/onyx/contact.png' },
+      { label: 'Appointments', src: '/images/projects/onyx/appointments.png' },
+      { label: 'Dashboard', src: '/images/projects/onyx/dashboard.png' },
+      {
+        label: 'Edit Appt',
+        src: '/images/projects/onyx/edit-appointment.png',
+      },
+      {
+        label: 'Edit Services',
+        src: '/images/projects/onyx/edit-services.png',
+      },
     ],
   },
   {

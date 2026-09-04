@@ -64,11 +64,7 @@ const Projects = () => {
             </p>
             <div className="mt-2 border-t border-primary/15">
               {rest.map((project, index) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  index={index}
-                />
+                <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </div>
           </div>

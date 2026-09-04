@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Camera, ImagePlus } from 'lucide-react';
 import { ProjectShot, ProjectType } from '@/lib/types';
@@ -11,6 +11,29 @@ import {
   SHOT_ASPECT,
   ShotLightbox,
 } from './ScreenshotImage';
+
+const ROTATE_MS = 5000;
+
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 48 : -48,
+    opacity: 0,
+    scale: 1.04,
+    filter: 'blur(10px)',
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    filter: 'blur(0px)',
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -48 : 48,
+    opacity: 0,
+    scale: 0.97,
+    filter: 'blur(8px)',
+  }),
+};
 
 const ShotGallery = ({
   project,
@@ -25,8 +48,27 @@ const ShotGallery = ({
     ? project.shots
     : [{ label: project.title, src: project.image }];
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const [paused, setPaused] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
   const shot = shots[active];
+
+  const goTo = (index: number) => {
+    if (index === active) return;
+    setDirection(index > active ? 1 : -1);
+    setActive(index);
+  };
+
+  useEffect(() => {
+    if (paused || lightbox || shots.length < 2) return;
+
+    const id = window.setInterval(() => {
+      setDirection(1);
+      setActive((current) => (current + 1) % shots.length);
+    }, ROTATE_MS);
+
+    return () => window.clearInterval(id);
+  }, [paused, lightbox, shots.length, active]);
 
   return (
     <>
@@ -39,45 +81,56 @@ const ShotGallery = ({
             : 'lg:grid-cols-[minmax(0,1fr)_6.5rem]'
         )}
       >
-        <BrowserFrame href={project.live}>
-          <div className={`relative ${SHOT_ASPECT} overflow-hidden bg-black`}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={shot.label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
-                className="absolute inset-0"
+        <div
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          <BrowserFrame href={project.live}>
+            <div className={`relative ${SHOT_ASPECT} overflow-hidden bg-black`}>
+              <AnimatePresence
+                initial={false}
+                custom={direction}
+                mode="popLayout"
               >
-                {shot.src ? (
-                  <button
-                    type="button"
-                    onClick={() => setLightbox(shot.src!)}
-                    className="absolute inset-0"
-                    aria-label={`View ${shot.label} screenshot larger`}
-                  >
-                    <ShotFrame
-                      shot={shot}
-                      title={project.title}
-                      priority={priority}
-                      compact={compact}
-                    />
-                  </button>
-                ) : (
-                  <EmptyShot label={shot.label} />
-                )}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </BrowserFrame>
+                <motion.div
+                  key={shot.label}
+                  custom={direction}
+                  variants={slideVariants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0"
+                >
+                  {shot.src ? (
+                    <button
+                      type="button"
+                      onClick={() => setLightbox(shot.src!)}
+                      className="absolute inset-0"
+                      aria-label={`View ${shot.label} screenshot larger`}
+                    >
+                      <ShotFrame
+                        shot={shot}
+                        title={project.title}
+                        priority={priority && active === 0}
+                        compact={compact}
+                      />
+                    </button>
+                  ) : (
+                    <EmptyShot label={shot.label} />
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </BrowserFrame>
+        </div>
 
-        <div className="grid grid-cols-3 content-start gap-2 lg:grid-cols-1">
+        <div className="grid grid-cols-3 content-start gap-2 sm:grid-cols-4 lg:grid-cols-1">
           {shots.map((item, index) => (
             <button
               key={item.label}
               type="button"
-              onClick={() => setActive(index)}
+              onClick={() => goTo(index)}
               aria-pressed={active === index}
               className={cn(
                 'group relative overflow-hidden rounded-lg border text-left transition',
@@ -91,7 +144,7 @@ const ShotGallery = ({
                   <ScreenshotImage
                     src={item.src}
                     alt=""
-                    sizes="(max-width: 1024px) 30vw, 180px"
+                    sizes="(max-width: 1024px) 25vw, 180px"
                     className="opacity-80 transition group-hover:opacity-100"
                   />
                 ) : (
@@ -100,7 +153,7 @@ const ShotGallery = ({
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-tertiary/90 via-tertiary/10 to-transparent" />
-                <span className="absolute bottom-1.5 left-2 font-mono text-[10px] uppercase tracking-wider text-primary-light">
+                <span className="absolute bottom-1 left-1.5 truncate font-mono text-[9px] uppercase tracking-wider text-primary-light">
                   {item.label}
                 </span>
               </div>

@@ -1,84 +1,111 @@
+'use client';
+
 import Image from 'next/image';
+import { motion } from 'framer-motion';
+import SectionHeading from './SectionHeading';
+
+const stats = [
+  { label: 'Now', value: 'StarPlus Energy', detail: 'MES ops + data' },
+  { label: 'Stack', value: 'Full-Stack', detail: 'Next.js · SQL · React' },
+  { label: 'Path', value: 'Hospitality → Tech', detail: 'Chef to engineer' },
+];
 
 const About = () => {
   return (
-    <div
+    <section
       id="about"
-      className="text-white flex flex-col gap-7 justify-center mb-36 px-12 lg:px-32 xl:px-56 scroll-mt-56"
+      className="scroll-mt-28 px-6 py-24 md:px-12 lg:px-24 xl:px-40"
     >
-      <h1 className="text-4xl font-semibold text-primary">Who am I?</h1>
+      <SectionHeading index="01" title="Who am I?" />
 
-      <div className="">
-        <div className="relative w-64 mx-auto md:mx-0 md:w-[400px] md:mr-28">
+      <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.2fr)]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5 }}
+          className="relative mx-auto w-64 md:mx-0 md:w-[380px]"
+        >
           <Image
-            src={'/images/programmer.jpg'}
+            src="/images/programmer.jpg"
             width={300}
             height={300}
-            alt=""
-            className="md:hidden z-20 rounded-sm mb-10 relative w-64"
+            alt="Jose Laurito working at a computer"
+            className="relative z-20 mb-6 w-64 rounded-xl md:hidden"
           />
           <Image
-            src={'/images/whiteboard.jpg'}
+            src="/images/whiteboard.jpg"
             width={600}
             height={600}
-            alt=""
-            className="relative hidden z-20 rounded-sm md:flex md:mr-10 mb-8 md:float-left md:mx-0 md:w-[400px]"
+            alt="Jose Laurito presenting at a whiteboard"
+            className="relative z-20 hidden w-full rounded-xl md:block"
           />
-          <span className="absolute z-10 border-8 border-primary w-full h-full md:h-[270px] top-6 left-7 md:top-4 md:left-5 rounded-sm"></span>
-        </div>
+          <span className="absolute left-5 top-5 z-10 h-[calc(100%-1.5rem)] w-full rounded-xl border-2 border-primary md:h-[calc(100%-0.5rem)]" />
+        </motion.div>
 
-        <p>
-          Hello, I&apos;m Jose, a{' '}
-          <span className="text-primary font-semibold text-lg">
-            Full-Stack Software Engineer{' '}
-          </span>
-          and{' '}
-          <span className="text-primary font-semibold text-lg">
-            MES Operations Data Analyst{' '}
-          </span>
-          , driven by a passion for building scalable technology and optimizing
-          complex systems.
-        </p>
-        <br />
-        <p>
-          Currently, at{' '}
-          <span className="text-primary font-semibold text-lg">
-            StarPlus Energy
-          </span>
-          , I bridge the gap between software and large-scale manufacturing by
-          managing Manufacturing Execution Systems (MES). I specialize in
-          real-time troubleshooting, automation oversight, and leveraging
-          data-driven insights to enhance operational efficiency.
-        </p>
-        <br />
-        <p>
-          Previously, as a{' '}
-          <span className="text-primary font-semibold text-lg">
-            Senior Developer
-          </span>{' '}
-          at{' '}
-          <span className="text-primary font-semibold text-lg">
-            The Spartan IT Group
-          </span>
-          , I led the development of dynamic solutions for local businesses in
-          an Agile environment. My work focused on architecting robust
-          applications using Next.js, Supabase, and PostgreSQL, while
-          implementing secure OAuth authentication and CI/CD pipelines to
-          streamline deployments. Key projects include "The Kennel" e-commerce
-          platform and the Spartan IT Group’s corporate site.
-        </p>
-        <br />
-        <p>
-          Before this role, I earned my full-stack software engineering
-          certification in 2023 while balancing my career as a chef and
-          apprentice at{' '}
-          <span className="text-primary font-semibold text-lg">Co.Lab</span>,
-          contributing to projects like “Matrimoni” and “Break Buddy.” My
-          background in Hospitality - Culinary enhances my creativity and
-          problem-solving skills.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.5, delay: 0.08 }}
+          className="flex flex-col gap-5 text-primary-light/90"
+        >
+          <p>
+            Hello, I&apos;m Jose — a{' '}
+            <span className="font-semibold text-primary">
+              Full-Stack Software Engineer
+            </span>{' '}
+            and{' '}
+            <span className="font-semibold text-primary">
+              MES Operations Data Analyst
+            </span>{' '}
+            who sits between the shop floor and the data that keeps it moving.
+          </p>
+          <p>
+            At{' '}
+            <span className="font-semibold text-primary">StarPlus Energy</span>,
+            I do both analysis and operations support: live MES troubleshooting
+            when a line stalls, then turning work-order, scrap, and downtime
+            history into KPIs supervisors can use on the shift — not in a
+            monthly slide.
+          </p>
+          <p>
+            Previously, as a{' '}
+            <span className="font-semibold text-primary">Senior Developer</span>{' '}
+            at{' '}
+            <span className="font-semibold text-primary">
+              The Spartan IT Group
+            </span>
+            , I led Agile delivery on Next.js, Supabase, and PostgreSQL —
+            including The Kennel e-commerce platform and the Spartan corporate
+            site, with OAuth and CI/CD in the mix.
+          </p>
+          <p>
+            I earned my full-stack certification in 2023 while still working as
+            a chef, then apprenticed at{' '}
+            <span className="font-semibold text-primary">Co.Lab</span> on
+            Matrimoni and Break Buddy. Hospitality still shows up as calm under
+            pressure and a bias for finishing the ticket.
+          </p>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {stats.map((stat) => (
+              <div key={stat.label} className="glass px-4 py-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary">
+                  {stat.label}
+                </p>
+                <p className="mt-2 font-display text-lg font-semibold text-primary">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs text-primary-light/70">
+                  {stat.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

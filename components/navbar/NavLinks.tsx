@@ -1,22 +1,27 @@
 import Link from 'next/link';
+import { navLinks } from '@/lib/navLinks';
+import { cn } from '@/lib/utils';
 
-const navlinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' },
-];
+interface NavLinksProps {
+  active: string;
+}
 
-const NavLinks = () => {
+const NavLinks = ({ active }: NavLinksProps) => {
   return (
-    <ul className="lg:flex gap-10 items-center hidden">
-      {navlinks.map((link) => (
-        <li
-          key={link.name}
-          className="text-2xl hover:text-primary cursor-pointer font-semibold text-[#178582]"
-        >
-          <Link href={link.href}>{link.name}</Link>
+    <ul className="hidden items-center gap-8 lg:flex">
+      {navLinks.map((link) => (
+        <li key={link.name}>
+          <Link
+            href={link.href}
+            className={cn(
+              'font-mono text-sm tracking-wide transition-colors',
+              active === link.href
+                ? 'text-primary'
+                : 'text-secondary hover:text-primary-light'
+            )}
+          >
+            {link.name}
+          </Link>
         </li>
       ))}
     </ul>

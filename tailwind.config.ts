@@ -1,4 +1,3 @@
-import { transform } from 'next/dist/build/swc/generated-native';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -13,6 +12,7 @@ const config: Config = {
       animation: {
         'loop-scroll': 'loop-scroll 40s linear infinite',
         'loop-scroll-reverse': 'loop-scroll-reverse 40s linear infinite',
+        'pulse-live': 'pulse-live 2.2s ease-in-out infinite',
       },
       keyframes: {
         'loop-scroll': {
@@ -31,9 +31,15 @@ const config: Config = {
             transform: 'translateX(0)',
           },
         },
+        'pulse-live': {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.45', transform: 'scale(0.85)' },
+        },
       },
       fontFamily: {
-        poppins: ['var(--font-poppins)'],
+        sans: ['var(--font-outfit)'],
+        display: ['var(--font-syne)'],
+        mono: ['var(--font-ibm-plex-mono)'],
       },
       colors: {
         primary: {

@@ -5,6 +5,7 @@ import { projects } from '@/lib/projectsData';
 import { ProjectCategory } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import SectionHeading from '../SectionHeading';
+import FeaturedProject from './FeaturedProject';
 import ProjectCard from './ProjectCard';
 
 const filters: Array<'All' | ProjectCategory> = [
@@ -53,18 +54,23 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="flex flex-col gap-10">
-        {featured && <ProjectCard project={featured} featured />}
+      <div className="flex flex-col gap-16">
+        {featured && <FeaturedProject project={featured} />}
 
         {rest.length > 0 && (
-          <div className="grid gap-5 md:grid-cols-2">
-            {rest.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                wide={index === 0 && rest.length % 2 === 1}
-              />
-            ))}
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-secondary">
+              More work
+            </p>
+            <div className="mt-2 border-t border-primary/15">
+              {rest.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
         )}
       </div>

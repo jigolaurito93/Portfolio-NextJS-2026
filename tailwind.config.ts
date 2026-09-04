@@ -13,6 +13,8 @@ const config: Config = {
         'loop-scroll': 'loop-scroll 40s linear infinite',
         'loop-scroll-reverse': 'loop-scroll-reverse 40s linear infinite',
         'pulse-live': 'pulse-live 2.2s ease-in-out infinite',
+        'shine-sweep': 'shine-sweep 5.5s ease-in-out infinite',
+        'ken-burns': 'ken-burns 22s ease-in-out infinite alternate',
       },
       keyframes: {
         'loop-scroll': {
@@ -34,6 +36,14 @@ const config: Config = {
         'pulse-live': {
           '0%, 100%': { opacity: '1', transform: 'scale(1)' },
           '50%': { opacity: '0.45', transform: 'scale(0.85)' },
+        },
+        'shine-sweep': {
+          '0%': { transform: 'translateX(-140%) skewX(-18deg)' },
+          '100%': { transform: 'translateX(240%) skewX(-18deg)' },
+        },
+        'ken-burns': {
+          '0%': { transform: 'scale(1) translate(0, 0)' },
+          '100%': { transform: 'scale(1.1) translate(-1.5%, -1%)' },
         },
       },
       fontFamily: {

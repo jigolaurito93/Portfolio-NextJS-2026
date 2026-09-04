@@ -12,32 +12,41 @@ const Experience = () => {
     >
       <SectionHeading index="02" title="Experience" />
 
-      <div className="relative ml-2 border-l border-primary/25 pl-8 md:ml-4">
+      <div className="relative ml-2 md:ml-4">
+        <div
+          aria-hidden
+          className="absolute bottom-2 left-0 top-2 w-px bg-primary/25"
+        />
+
         {experiences.map((experience, i) => {
           const featured = i === 0;
 
           return (
-            <motion.article
+            <motion.div
               key={`${experience.company}-${experience.role}`}
               initial={{ opacity: 0, x: -16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.45, delay: i * 0.05 }}
-              className={`relative mb-10 last:mb-0 ${
-                featured ? 'glass glow-gold p-6 md:p-8' : 'pb-2'
-              }`}
+              className="relative mb-10 pl-8 last:mb-0 md:pl-10"
             >
               <span
-                className={`absolute -left-[41px] top-2 flex h-3.5 w-3.5 items-center justify-center rounded-full border-2 md:-left-[45px] ${
+                className={`absolute left-0 top-2 h-3.5 w-3.5 -translate-x-1/2 rounded-full border-2 ${
                   featured
                     ? 'border-secondary bg-secondary'
                     : 'border-primary bg-tertiary'
                 }`}
               >
                 {featured && (
-                  <span className="absolute h-3.5 w-3.5 animate-pulse-live rounded-full bg-secondary" />
+                  <span className="absolute inset-0 animate-pulse-live rounded-full bg-secondary" />
                 )}
               </span>
+
+              <article
+                className={
+                  featured ? 'glass glow-gold p-6 md:p-8' : 'pb-2'
+                }
+              >
 
               <div className="flex flex-col gap-1 md:flex-row md:items-baseline md:justify-between">
                 <h3 className="font-display text-xl font-semibold text-primary-light md:text-2xl">
@@ -65,7 +74,8 @@ const Experience = () => {
                   </li>
                 ))}
               </ul>
-            </motion.article>
+              </article>
+            </motion.div>
           );
         })}
       </div>

@@ -1,0 +1,185 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[letterpaper,margin=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\footnotesize \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-3pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-2pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}, itemsep=6pt, topsep=4pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in,itemsep=4pt,topsep=5pt,parsep=2pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% layout-pass: open two-page spacing
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Jose Laurito} \\ \vspace{3pt}
+    \small 703-457-0021 $|$ \href{mailto:jose.i.laurito@gmail.com}{\underline{jose.i.laurito@gmail.com}} $|$
+    \href{https://www.linkedin.com/in/jose-laurito/}{\underline{linkedin.com/in/jose-laurito/}} $|$
+    \href{https://github.com/jigolaurito93}{\underline{github.com/jigolaurito93}} $|$
+    \href{https://joselaurito.vercel.app/}{\underline{joselaurito.vercel.app/ Portfolio}}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+  {MES Operations Data Analyst}{February 2025 -- Present}
+  {StarPlus Energy}{Kokomo, IN}
+  \resumeItemListStart
+    \resumeItem{Troubleshoot real-time lot and equipment issues in NEXT MES (Samsung SDI) and trace SECS/GEM events through Tool Control (TC) to confirm data integrity}
+    \resumeItem{Analyze, validate, and correct production data with Oracle SQL in Toad; execute DML only after DBSafer approval (reason, query, Change Request, and manager sign-off)}
+    \resumeItem{Determine root cause by reading Java business logic in Eclipse and C\# UI event handlers in Visual Studio when logs are not enough}
+    \resumeItem{Inspect application logs across multiple backend servers over SSH with SuperPuTTY and track incidents in Jira using a Kanban workflow}
+  \resumeItemListEnd
+
+    \resumeSubheading
+      {Software Developer}{October 2024 -- January 2025}
+      {The Spartan IT Group, LLC}{Brownsburg, IN}
+      \resumeItemListStart
+        \resumeItem{Project Lead for ``The Kennel'' -- an e-commerce platform developed for Bulldog Community Gaming LLC, incorporating Next.js, Supabase, PostgreSQL, and React Hook Forms}
+        \resumeItem{Led end-to-end application development: architecture design, database integration, API development, and front-end optimization to deliver a seamless, responsive user experience}
+        \resumeItem{Deployed CI/CD pipelines, automating testing and deployment, which reduced release time by 30\%}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Full-Stack Software Developer}{September 2023 -- March 2024}
+      {Co.Lab}{Remote}
+      \resumeItemListStart
+        \resumeItem{Developed ``Break Buddy'' and ``Matrimoni'' applications with React.js, Tailwind CSS, Material-UI, and Firebase, focusing on creating scalable, accessible web solutions}
+        \resumeItem{Designed and deployed ``Break Buddy'' on Vercel with a CI/CD workflow for rapid updates and reliability}
+        \resumeItem{Implemented user authentication with Firebase, ensuring secure access and user data management}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\newpage
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+  {\href{https://carwash-web-app.vercel.app/}{\textbf{Onyx Carwash}} \href{https://carwash-web-app.vercel.app/}{\small\underline{[Live Site]}} $|$ \href{https://github.com/jigolaurito93/carwash-web-app}{\small\underline{[GitHub]}} $|$ \emph{Next.js, TypeScript, Tailwind CSS, Supabase, Zod, Vercel}}{April 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Built a responsive car wash booking and management platform with a premium dark-mode UI and mobile-first layout}
+        \resumeItem{Implemented dynamic service listings, form validation, and pricing flows using TypeScript, Zod, and Supabase}
+        \resumeItem{Deployed the platform to Vercel and optimized the experience for mobile and tablet users}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+  {\href{https://nuptial-suite.vercel.app/}{\textbf{Nuptial Suite}} \href{https://nuptial-suite.vercel.app/}{\small\underline{[Live Site]}} $|$ \href{https://github.com/jigolaurito93/nuptial-suite}{\small\underline{[GitHub]}} $|$ \emph{Next.js, TypeScript, Tailwind CSS, Supabase, Vercel}}{September 2026 -- Present}
+      \resumeItemListStart
+        \resumeItem{Built a single-couple wedding invitation site with an envelope-gated guest experience covering venue, program, gallery, gift guide, and FAQs}
+        \resumeItem{Implemented a public RSVP flow stored in Supabase, a protected couple admin scaffold, and a mobile-first UI deployed on Vercel}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages:} C\#, Java, Python, TypeScript, SQL, JavaScript, HTML/CSS \\[3pt]
+     \textbf{Frameworks}{: Next.JS, Tailwind CSS, Flask, Bootstrap} \\[3pt]
+     \textbf{MES / Operations:} NEXT MES, Tool Control (TC), Toad for Oracle, DBSafer, SuperPuTTY, Eclipse, Visual Studio, Jira \\[3pt]
+     \textbf{Developer Tools, Libraries}{: React, VS Code, Cursor, Supabase, Vercel, Github, Postman, Figma, Trello, Node.JS} \\
+    }}
+ \end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \vspace{2pt}
+  \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \textbf{Coding Temple} & Chicago, IL \\
+    \textit{\small Software Engineering - Certification} & \textit{\small January 2023 -- May 2023} \\[8pt]
+    \textbf{De La Salle - College of Saint Benilde} & Manila, Philippines \\
+    \textit{\small BS in Hospitality, Restaurant \& Institution Management} & \textit{\small April 2010 -- July 2016} \\
+  \end{tabular*}
+
+\end{document}

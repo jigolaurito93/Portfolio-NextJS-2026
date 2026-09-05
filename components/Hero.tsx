@@ -5,17 +5,6 @@ import { motion } from 'framer-motion';
 import SocialLinks from './SocialLinks';
 
 const Hero = () => {
-  const handleDownloadCV = () => {
-    const cvFileName = 'Jose-Resume.pdf';
-    const cvPath = `/${cvFileName}`;
-    const link = document.createElement('a');
-    link.href = cvPath;
-    link.download = cvFileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <section
       id="home"
@@ -83,12 +72,14 @@ const Hero = () => {
           </div>
 
           <div className="mt-4 flex flex-wrap justify-center gap-3 lg:justify-start">
-            <button
-              onClick={handleDownloadCV}
+            <a
+              href="/Jose-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-secondary px-7 py-2.5 text-sm font-semibold text-tertiary transition hover:bg-secondary-light"
             >
-              Download CV
-            </button>
+              View Resume
+            </a>
             <a
               href="#contact"
               className="rounded-full border border-primary/50 px-7 py-2.5 text-sm font-semibold text-primary transition hover:border-primary hover:bg-primary/10"

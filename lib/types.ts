@@ -15,6 +15,12 @@ export interface ProjectShot {
   overlay?: boolean;
 }
 
+export interface ProjectClip {
+  src: string;
+  poster?: string;
+  label: string;
+}
+
 export interface ProjectType {
   id: string;
   title: string;
@@ -28,4 +34,6 @@ export interface ProjectType {
   logo?: string;
   highlights?: string[];
   shots?: ProjectShot[];
+  /** Looping muted clip for a motion-driven feature (envelope open, etc.). */
+  clip?: ProjectClip;
 }

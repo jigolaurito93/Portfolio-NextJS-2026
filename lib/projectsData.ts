@@ -55,6 +55,11 @@ export const projects: ProjectType[] = [
     category: 'Full-Stack',
     github: 'https://github.com/jigolaurito93/nuptial-suite',
     live: 'https://nuptial-suite.vercel.app',
+    clip: {
+      src: '/images/projects/nuptial-suite/envelope-open.mp4',
+      poster: '/images/projects/nuptial-suite/cover.png',
+      label: 'Scroll to open',
+    },
     shots: [
       { label: 'Envelope', src: '/images/projects/nuptial-suite/cover.png' },
       {

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -103,16 +103,83 @@ export const ScreenshotImage = ({
   />
 );
 
+export const ProjectClipPlayer = ({
+  src,
+  poster,
+  label,
+  className,
+}: {
+  src: string;
+  poster?: string;
+  label: string;
+  className?: string;
+}) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = (visible: boolean) => {
+      if (!visible || motion.matches) {
+        video.pause();
+        return;
+      }
+      void video.play();
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => sync(entry.isIntersecting),
+      { threshold: 0.35 }
+    );
+    observer.observe(video);
+
+    const onMotion = () => {
+      const rect = video.getBoundingClientRect();
+      sync(rect.top < window.innerHeight && rect.bottom > 0);
+    };
+    motion.addEventListener('change', onMotion);
+
+    return () => {
+      observer.disconnect();
+      motion.removeEventListener('change', onMotion);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      autoPlay
+      preload="metadata"
+      aria-label={label}
+      className={cn(
+        'absolute inset-0 h-full w-full object-contain object-top',
+        className
+      )}
+    />
+  );
+};
+
 export const ShotLightbox = ({
   src,
   alt,
   href,
   onClose,
+  video = false,
+  poster,
 }: {
   src: string;
   alt: string;
   href?: string;
   onClose: () => void;
+  video?: boolean;
+  poster?: string;
 }) => {
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -148,9 +215,22 @@ export const ShotLightbox = ({
         onClick={(event) => event.stopPropagation()}
       >
         <BrowserFrame href={href}>
-          {/* Native img so the original PNG is shown at full resolution */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={src} alt={alt} className="block h-auto w-full" />
+          {video ? (
+            <video
+              src={src}
+              poster={poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="block h-auto w-full"
+            />
+          ) : (
+            // Native img so the original PNG is shown at full resolution
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={src} alt={alt} className="block h-auto w-full" />
+          )}
         </BrowserFrame>
       </div>
     </div>

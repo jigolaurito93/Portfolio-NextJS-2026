@@ -53,6 +53,7 @@ export const projects: ProjectType[] = [
     image: '/images/projects/nuptial-suite/cover.png',
     tags: ['Next.js', 'Supabase', 'Tailwind', 'Motion', 'TypeScript'],
     category: 'Full-Stack',
+    featured: true,
     github: 'https://github.com/jigolaurito93/nuptial-suite',
     live: 'https://nuptial-suite.vercel.app',
     clip: {
@@ -60,6 +61,13 @@ export const projects: ProjectType[] = [
       poster: '/images/projects/nuptial-suite/cover.png',
       label: 'Scroll to open',
     },
+    highlights: [
+      'Scroll-driven envelope that opens into a letter',
+      'Password-gated guest invitation on a single page',
+      'Venue, program, gallery, gift guide, and FAQs',
+      'Public RSVP stored in Supabase',
+      'Couple admin scaffold with auth',
+    ],
     shots: [
       { label: 'Envelope', src: '/images/projects/nuptial-suite/cover.png' },
       {

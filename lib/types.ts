@@ -11,6 +11,8 @@ export interface ProjectShot {
   label: string;
   /** File under /public. Leave undefined to show an empty slot. */
   src?: string;
+  kind?: 'image' | 'video';
+  poster?: string;
   /** Recreate the Onyx hero type on a photo until a real UI screenshot is added. */
   overlay?: boolean;
 }

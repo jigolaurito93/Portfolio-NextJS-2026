@@ -7,7 +7,6 @@ import { ProjectType } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import {
   BrowserFrame,
-  ProjectClipPlayer,
   ScreenshotImage,
   SHOT_ASPECT,
   ShotLightbox,
@@ -20,12 +19,9 @@ const ProjectCard = ({
   project: ProjectType;
   index: number;
 }) => {
-  const [lightbox, setLightbox] = useState<{
-    src: string;
-    alt: string;
-    video?: boolean;
-    poster?: string;
-  } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(
+    null
+  );
 
   return (
     <motion.article
@@ -81,35 +77,6 @@ const ProjectCard = ({
         )}
       </div>
 
-      {project.clip && (
-        <div className="sm:col-span-2 sm:col-start-2">
-          <BrowserFrame href={project.live} compact>
-            <button
-              type="button"
-              onClick={() =>
-                setLightbox({
-                  src: project.clip!.src,
-                  alt: `${project.title} — ${project.clip!.label}`,
-                  video: true,
-                  poster: project.clip!.poster,
-                })
-              }
-              className={`relative block w-full ${SHOT_ASPECT} bg-black/30`}
-              aria-label={`View ${project.clip.label} clip larger`}
-            >
-              <ProjectClipPlayer
-                src={project.clip.src}
-                poster={project.clip.poster}
-                label={project.clip.label}
-              />
-              <span className="absolute bottom-2 left-2 rounded bg-black/55 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-primary">
-                {project.clip.label}
-              </span>
-            </button>
-          </BrowserFrame>
-        </div>
-      )}
-
       {project.shots && project.shots.length > 0 && (
         <div className="grid grid-cols-3 gap-2 sm:col-span-2 sm:col-start-2">
           {project.shots.map((shot) => (
@@ -154,8 +121,6 @@ const ProjectCard = ({
           src={lightbox.src}
           alt={lightbox.alt}
           href={project.live}
-          video={lightbox.video}
-          poster={lightbox.poster}
           onClose={() => setLightbox(null)}
         />
       )}

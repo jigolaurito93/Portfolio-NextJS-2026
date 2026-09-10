@@ -21,7 +21,7 @@ const Projects = () => {
     [filter]
   );
 
-  const featured = filtered.find((project) => project.featured);
+  const featured = filtered.filter((project) => project.featured);
   const rest = filtered.filter((project) => !project.featured);
 
   return (
@@ -50,7 +50,9 @@ const Projects = () => {
       </div>
 
       <div className="flex flex-col gap-16">
-        {featured && <FeaturedProject project={featured} />}
+        {featured.map((project) => (
+          <FeaturedProject key={project.id} project={project} />
+        ))}
 
         {rest.length > 0 && (
           <div>

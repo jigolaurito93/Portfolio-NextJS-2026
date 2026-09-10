@@ -8,12 +8,7 @@ import SectionHeading from '../SectionHeading';
 import FeaturedProject from './FeaturedProject';
 import ProjectCard from './ProjectCard';
 
-const filters: Array<'All' | ProjectCategory> = [
-  'All',
-  'MES',
-  'Full-Stack',
-  'Web',
-];
+const filters: Array<'All' | ProjectCategory> = ['All', 'Full-Stack', 'Web'];
 
 const Projects = () => {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');

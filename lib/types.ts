@@ -5,7 +5,7 @@ export interface ExperienceType {
   acc: string[];
 }
 
-export type ProjectCategory = 'MES' | 'Full-Stack' | 'Web';
+export type ProjectCategory = 'Full-Stack' | 'Web';
 
 export interface ProjectShot {
   label: string;

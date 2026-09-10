@@ -46,6 +46,25 @@ export const projects: ProjectType[] = [
     ],
   },
   {
+    id: 'nuptial-suite',
+    title: 'Nuptial Suite',
+    description:
+      'Single-couple wedding invitation site with a scroll-driven envelope hero. Guests unlock a private SPA covering venue, program, entourage, dress code, gallery, gift guide, and FAQs, then submit an RSVP stored in Supabase.',
+    image: '/images/projects/nuptial-suite/cover.png',
+    tags: ['Next.js', 'Supabase', 'Tailwind', 'Motion', 'TypeScript'],
+    category: 'Full-Stack',
+    github: 'https://github.com/jigolaurito93/nuptial-suite',
+    live: 'https://nuptial-suite.vercel.app',
+    shots: [
+      { label: 'Envelope', src: '/images/projects/nuptial-suite/cover.png' },
+      {
+        label: 'Invitation',
+        src: '/images/projects/nuptial-suite/invitation.png',
+      },
+      { label: 'Venue', src: '/images/projects/nuptial-suite/venue.png' },
+    ],
+  },
+  {
     id: 'break-buddy',
     title: 'Break Buddy',
     description:
@@ -85,17 +104,6 @@ export const projects: ProjectType[] = [
     image: '/images/programmer.jpg',
     tags: ['Next.js', 'Supabase', 'PostgreSQL'],
     category: 'Full-Stack',
-    github: 'https://github.com/jigolaurito93',
-    live: '#projects',
-  },
-  {
-    id: 'shiftdesk',
-    title: 'ShiftDesk',
-    description:
-      'MES operations support console: incident queue, SLA timers, and RCA notes so first-line support can restore production and capture what actually broke.',
-    image: '/images/hero-bg.jpg',
-    tags: ['Operations Support', 'React', 'MES'],
-    category: 'MES',
     github: 'https://github.com/jigolaurito93',
     live: '#projects',
   },
